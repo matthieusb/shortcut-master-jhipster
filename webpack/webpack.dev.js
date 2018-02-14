@@ -4,6 +4,7 @@ const webpackMerge = require('webpack-merge');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const WebpackNotifierPlugin = require('webpack-notifier');
 const path = require('path');
+const Jarvis = require("webpack-jarvis");
 
 const utils = require('./utils.js');
 const commonConfig = require('./webpack.common.js');
@@ -101,6 +102,9 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
         new WebpackNotifierPlugin({
             title: 'JHipster',
             contentImage: path.join(__dirname, 'logo-jhipster.png')
+        }),
+        new Jarvis({
+            port: 1337 // jarvis port
         })
     ]
 });
