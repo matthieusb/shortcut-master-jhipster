@@ -37,7 +37,9 @@ public class ExerciseVisited implements Serializable {
     @ManyToOne
     private Exercise exercise;
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    @ManyToOne
+    private User user;
+
     public Long getId() {
         return id;
     }
@@ -49,6 +51,15 @@ public class ExerciseVisited implements Serializable {
     public ExercisePhase getLastPhaseFinished() {
         return lastPhaseFinished;
     }
+
+    public User getUser() { return user; }
+
+    public ExerciseVisited user(User user) {
+        this.user = user;
+        return this;
+    }
+
+    public void setUser(User user) { this.user = user; }
 
     public ExerciseVisited lastPhaseFinished(ExercisePhase lastPhaseFinished) {
         this.lastPhaseFinished = lastPhaseFinished;

@@ -85,6 +85,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "reset_date")
     private Instant resetDate = null;
 
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ExerciseVisited> exercisesVisited;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<TrainingFollowed> trainingsFollowed;
+
     @JsonIgnore
     @ManyToMany
     @JoinTable(
@@ -99,6 +107,8 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "user")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PersistentToken> persistentTokens = new HashSet<>();
+
+
 
     public Long getId() {
         return id;
@@ -196,6 +206,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
     public void setLangKey(String langKey) {
         this.langKey = langKey;
     }
+
+    public Set<ExerciseVisited> getExercisesVisited() { return exercisesVisited; }
+
+    public void setExercisesVisited(Set<ExerciseVisited> exercisesVisited) { this.exercisesVisited = exercisesVisited; }
+
+    public Set<TrainingFollowed> getTrainingsFollowed() { return trainingsFollowed; }
+
+    public void setTrainingsFollowed(Set<TrainingFollowed> trainingsFollowed) { this.trainingsFollowed = trainingsFollowed; }
 
     public Set<Authority> getAuthorities() {
         return authorities;
