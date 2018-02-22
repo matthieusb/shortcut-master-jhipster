@@ -1,0 +1,74 @@
+<div>
+    <h2>
+        <span jhiTranslate="shortcutmasterApp.exercise.home.title">Exercises</span>
+        <button class="btn btn-primary float-right jh-create-entity create-exercise" [routerLink]="['/', { outlets: { popup: ['exercise-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="shortcutmasterApp.exercise.home.createLabel">
+            Create new Exercise
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="exercises">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="shortcutmasterApp.exercise.label">Label</span></th>
+            <th><span jhiTranslate="shortcutmasterApp.exercise.description">Description</span></th>
+            <th><span jhiTranslate="shortcutmasterApp.exercise.order">Order</span></th>
+            <th><span jhiTranslate="shortcutmasterApp.exercise.opponent">Opponent</span></th>
+            <th><span jhiTranslate="shortcutmasterApp.exercise.training">Training</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let exercise of exercises ;trackBy: trackId">
+                <td><a [routerLink]="['../exercise', exercise.id ]">{{exercise.id}}</a></td>
+                <td>{{exercise.label}}</td>
+                <td>{{exercise.description}}</td>
+                <td>{{exercise.order}}</td>
+                <td>
+                    <div *ngIf="exercise.opponent">
+                        <a [routerLink]="['../opponent', exercise.opponent?.id ]" >{{exercise.opponent?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="exercise.training">
+                        <a [routerLink]="['../training', exercise.training?.id ]" >{{exercise.training?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../exercise', exercise.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'exercise/'+ exercise.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'exercise/'+ exercise.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

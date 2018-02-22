@@ -1,0 +1,34 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "shortcut",
+            "otherEntityName": "shortcut",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "label",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "jsCode",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180222203937",
+    "javadoc": "Describes a pressed key\nlabel: the pressed key label (Ctrl, Alt,a, b, c ...)\njsCode: the pressed key javascript code\n\nAbout KeyboardEvent.code, see the following link:\nhttps:\nhttps:\nhttp:",
+    "entityTableName": "keystroke",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

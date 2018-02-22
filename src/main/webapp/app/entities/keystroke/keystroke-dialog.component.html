@@ -1,0 +1,58 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myKeystrokeLabel" jhiTranslate="shortcutmasterApp.keystroke.home.createOrEditLabel">Create or edit a Keystroke</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!keystroke.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="keystroke.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shortcutmasterApp.keystroke.label" for="field_label">Label</label>
+            <input type="text" class="form-control" name="label" id="field_label"
+                [(ngModel)]="keystroke.label" required/>
+            <div [hidden]="!(editForm.controls.label?.dirty && editForm.controls.label?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.label?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shortcutmasterApp.keystroke.jsCode" for="field_jsCode">Js Code</label>
+            <input type="number" class="form-control" name="jsCode" id="field_jsCode"
+                [(ngModel)]="keystroke.jsCode" required/>
+            <div [hidden]="!(editForm.controls.jsCode?.dirty && editForm.controls.jsCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.jsCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.jsCode?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shortcutmasterApp.keystroke.shortcut" for="field_shortcut">Shortcut</label>
+            <select class="form-control" id="field_shortcut" name="shortcut" [(ngModel)]="keystroke.shortcut" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="shortcutOption.id === keystroke.shortcut?.id ? keystroke.shortcut : shortcutOption" *ngFor="let shortcutOption of shortcuts; trackBy: trackShortcutById">{{shortcutOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,32 @@
+
+<div *ngIf="exerciseVisited">
+    <h2><span jhiTranslate="shortcutmasterApp.exerciseVisited.detail.title">Exercise Visited</span> {{exerciseVisited.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="shortcutmasterApp.exerciseVisited.lastPhaseFinished">Last Phase Finished</span></dt>
+        <dd>
+            <span jhiTranslate="{{'shortcutmasterApp.ExercisePhase.' + exerciseVisited.lastPhaseFinished}}">{{exerciseVisited.lastPhaseFinished}}</span>
+        </dd>
+        <dt><span jhiTranslate="shortcutmasterApp.exerciseVisited.exercise">Exercise</span></dt>
+        <dd>
+            <div *ngIf="exerciseVisited.exercise">
+                <a [routerLink]="['/exercise', exerciseVisited.exercise?.id]">{{exerciseVisited.exercise?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'exercise-visited/'+ exerciseVisited.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

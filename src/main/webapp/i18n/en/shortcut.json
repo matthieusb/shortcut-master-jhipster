@@ -1,0 +1,23 @@
+
+{
+    "shortcutmasterApp": {
+        "shortcut" : {
+            "home": {
+                "title": "Shortcuts",
+                "createLabel": "Create a new Shortcut",
+                "createOrEditLabel": "Create or edit a Shortcut"
+            },
+            "created": "A new Shortcut is created with identifier {{ param }}",
+            "updated": "A Shortcut is updated with identifier {{ param }}",
+            "deleted": "A Shortcut is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Shortcut {{ id }}?"
+            },
+            "detail": {
+                "title": "Shortcut"
+            },
+            "label": "Label",
+            "keystrokes": "Keystrokes"
+        }
+    }
+}

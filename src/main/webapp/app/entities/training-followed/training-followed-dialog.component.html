@@ -1,0 +1,49 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myTrainingFollowedLabel" jhiTranslate="shortcutmasterApp.trainingFollowed.home.createOrEditLabel">Create or edit a Training Followed</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!trainingFollowed.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="trainingFollowed.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shortcutmasterApp.trainingFollowed.lastVisitDate" for="field_lastVisitDate">Last Visit Date</label>
+            <div class="d-flex">
+                <input id="field_lastVisitDate" type="datetime-local" class="form-control" name="lastVisitDate" [(ngModel)]="trainingFollowed.lastVisitDate"
+                required/>
+            </div>
+            <div [hidden]="!(editForm.controls.lastVisitDate?.dirty && editForm.controls.lastVisitDate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.lastVisitDate?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.lastVisitDate?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                    This field should be a date and time.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="shortcutmasterApp.trainingFollowed.training" for="field_training">Training</label>
+            <select class="form-control" id="field_training" name="training" [(ngModel)]="trainingFollowed.training" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="trainingOption.id === trainingFollowed.training?.id ? trainingFollowed.training : trainingOption" *ngFor="let trainingOption of trainings; trackBy: trackTrainingById">{{trainingOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

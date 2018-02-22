@@ -1,0 +1,23 @@
+
+{
+    "shortcutmasterApp": {
+        "shortcut" : {
+            "home": {
+                "title": "Shortcuts",
+                "createLabel": "Créer un nouveau Shortcut",
+                "createOrEditLabel": "Créer ou éditer un Shortcut"
+            },
+            "created": "Un nouveau Shortcut a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Shortcut avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Shortcut avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Shortcut {{ id }} ?"
+            },
+            "detail": {
+                "title": "Shortcut"
+            },
+            "label": "Label",
+            "keystrokes": "Keystrokes"
+        }
+    }
+}
