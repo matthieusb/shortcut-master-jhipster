@@ -5,6 +5,7 @@ export class TrainingFollowed implements BaseEntity {
         public id?: number,
         public lastVisitDate?: any,
         public training?: BaseEntity,
+        public user?: BaseEntity,
     ) {
     }
 }

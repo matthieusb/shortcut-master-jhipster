@@ -44,6 +44,8 @@ public class CacheConfiguration {
             cm.createCache(msb.shortcut.master.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(msb.shortcut.master.domain.PersistentToken.class.getName(), jcacheConfiguration);
             cm.createCache(msb.shortcut.master.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
+            cm.createCache(msb.shortcut.master.domain.User.class.getName() + ".exercisesVisited", jcacheConfiguration);
+            cm.createCache(msb.shortcut.master.domain.User.class.getName() + ".trainingsFollowed", jcacheConfiguration);
             cm.createCache(msb.shortcut.master.domain.Keystroke.class.getName(), jcacheConfiguration);
             cm.createCache(msb.shortcut.master.domain.Shortcut.class.getName(), jcacheConfiguration);
             cm.createCache(msb.shortcut.master.domain.Shortcut.class.getName() + ".keystrokes", jcacheConfiguration);
@@ -57,6 +59,7 @@ public class CacheConfiguration {
             cm.createCache(msb.shortcut.master.domain.Training.class.getName() + ".exercises", jcacheConfiguration);
             cm.createCache(msb.shortcut.master.domain.TrainingType.class.getName(), jcacheConfiguration);
             cm.createCache(msb.shortcut.master.domain.TrainingFollowed.class.getName(), jcacheConfiguration);
+
             // jhipster-needle-ehcache-add-entry
         };
     }

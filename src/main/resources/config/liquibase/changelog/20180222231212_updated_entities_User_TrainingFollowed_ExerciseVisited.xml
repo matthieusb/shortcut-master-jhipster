@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="msb (generated)" id="1519337540300-1">
+        <addColumn tableName="exercise_visited">
+            <column name="user_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="msb (generated)" id="1519337540300-2">
+        <addColumn tableName="training_followed">
+            <column name="user_id" type="int8"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="msb (generated)" id="1519337540300-3">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="exercise_visited" constraintName="FK169tw93v580v2imp4354p1b8q" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+    <changeSet author="msb (generated)" id="1519337540300-4">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="training_followed" constraintName="FK42ya0vq0ravuvncn2dykt27a8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
+    </changeSet>
+</databaseChangeLog>

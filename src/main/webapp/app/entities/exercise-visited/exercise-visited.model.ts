@@ -11,6 +11,7 @@ export class ExerciseVisited implements BaseEntity {
         public id?: number,
         public lastPhaseFinished?: ExercisePhase,
         public exercise?: BaseEntity,
+        public user?: BaseEntity,
     ) {
     }
 }
