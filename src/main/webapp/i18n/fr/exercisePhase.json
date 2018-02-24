@@ -1,0 +1,10 @@
+{
+    "shortcutmasterApp": {
+        "ExercisePhase" : {
+            "null": "",
+            "PRACTISE": "PRACTISE",
+            "FIGHT": "FIGHT",
+            "TEST": "TEST"
+        }
+    }
+}

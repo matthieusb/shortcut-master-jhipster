@@ -146,8 +146,8 @@ relationship OneToMany {
 	Shortcut{keystrokes} to Keystroke
     Exercise{questions} to Question
     Training{exercises} to Exercise
-    User{exercisesVisited} to ExerciseVisited // Does not work, has to be done manually
-    User{trainingFollowed} to TrainingFollowed // Same than before here
+    //User{exercisesVisited} to ExerciseVisited // Does not work, has to be done manually
+    //User{trainingFollowed} to TrainingFollowed // Same than before here
 }
 
 relationship OneToOne {

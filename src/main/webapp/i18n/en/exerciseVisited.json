@@ -1,0 +1,23 @@
+
+{
+    "shortcutmasterApp": {
+        "exerciseVisited" : {
+            "home": {
+                "title": "Exercise Visiteds",
+                "createLabel": "Create a new Exercise Visited",
+                "createOrEditLabel": "Create or edit a Exercise Visited"
+            },
+            "created": "A new Exercise Visited is created with identifier {{ param }}",
+            "updated": "A Exercise Visited is updated with identifier {{ param }}",
+            "deleted": "A Exercise Visited is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Exercise Visited {{ id }}?"
+            },
+            "detail": {
+                "title": "Exercise Visited"
+            },
+            "lastPhaseFinished": "Last Phase Finished",
+            "exercise": "Exercise"
+        }
+    }
+}

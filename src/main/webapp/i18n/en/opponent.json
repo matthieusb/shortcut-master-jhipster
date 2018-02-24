@@ -1,0 +1,23 @@
+
+{
+    "shortcutmasterApp": {
+        "opponent" : {
+            "home": {
+                "title": "Opponents",
+                "createLabel": "Create a new Opponent",
+                "createOrEditLabel": "Create or edit a Opponent"
+            },
+            "created": "A new Opponent is created with identifier {{ param }}",
+            "updated": "A Opponent is updated with identifier {{ param }}",
+            "deleted": "A Opponent is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Opponent {{ id }}?"
+            },
+            "detail": {
+                "title": "Opponent"
+            },
+            "name": "Name",
+            "difficulty": "Difficulty"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+
+{
+    "shortcutmasterApp": {
+        "exercise" : {
+            "home": {
+                "title": "Exercises",
+                "createLabel": "Créer un nouveau Exercise",
+                "createOrEditLabel": "Créer ou éditer un Exercise"
+            },
+            "created": "Un nouveau Exercise a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Exercise avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Exercise avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Exercise {{ id }} ?"
+            },
+            "detail": {
+                "title": "Exercise"
+            },
+            "label": "Label",
+            "description": "Description",
+            "order": "Order",
+            "opponent": "Opponent",
+            "questions": "Questions",
+            "training": "Training"
+        }
+    }
+}

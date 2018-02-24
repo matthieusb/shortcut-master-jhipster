@@ -1,0 +1,23 @@
+
+{
+    "shortcutmasterApp": {
+        "trainingType" : {
+            "home": {
+                "title": "TrainingTypes",
+                "createLabel": "Créer un nouveau Training Type",
+                "createOrEditLabel": "Créer ou éditer un Training Type"
+            },
+            "created": "Un nouveau Training Type a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Training Type avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Training Type avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Training Type {{ id }} ?"
+            },
+            "detail": {
+                "title": "Training Type"
+            },
+            "label": "Label",
+            "description": "Description"
+        }
+    }
+}
