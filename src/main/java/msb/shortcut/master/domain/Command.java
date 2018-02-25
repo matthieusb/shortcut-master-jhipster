@@ -1,6 +1,8 @@
 package msb.shortcut.master.domain;
 
 import io.swagger.annotations.ApiModel;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -18,6 +20,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "command")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter
+@Setter
 public class Command implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -32,26 +36,11 @@ public class Command implements Serializable {
     private String command;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCommand() {
-        return command;
-    }
-
     public Command command(String command) {
         this.command = command;
         return this;
     }
 
-    public void setCommand(String command) {
-        this.command = command;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

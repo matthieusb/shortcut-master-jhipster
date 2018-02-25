@@ -1,6 +1,8 @@
 package msb.shortcut.master.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import java.time.LocalDate;
@@ -19,6 +21,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "jhi_persistent_token")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter
 public class PersistentToken implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -26,64 +29,32 @@ public class PersistentToken implements Serializable {
     private static final int MAX_USER_AGENT_LEN = 255;
 
     @Id
+    @Setter
     private String series;
 
     @JsonIgnore
     @NotNull
     @Column(name = "token_value", nullable = false)
+    @Setter
     private String tokenValue;
     
     @Column(name = "token_date")
+    @Setter
     private LocalDate tokenDate;
 
     //an IPV6 address max length is 39 characters
     @Size(min = 0, max = 39)
     @Column(name = "ip_address", length = 39)
+    @Setter
     private String ipAddress;
 
     @Column(name = "user_agent")
     private String userAgent;
-        
 
     @JsonIgnore
     @ManyToOne
+    @Setter
     private User user;
-
-    public String getSeries() {
-        return series;
-    }
-
-    public void setSeries(String series) {
-        this.series = series;
-    }
-
-    public String getTokenValue() {
-        return tokenValue;
-    }
-
-    public void setTokenValue(String tokenValue) {
-        this.tokenValue = tokenValue;
-    }
-
-    public LocalDate getTokenDate() {
-        return tokenDate;
-    }
-
-    public void setTokenDate(LocalDate tokenDate) {
-        this.tokenDate = tokenDate;
-    }
-
-    public String getIpAddress() {
-        return ipAddress;
-    }
-
-    public void setIpAddress(String ipAddress) {
-        this.ipAddress = ipAddress;
-    }
-
-    public String getUserAgent() {
-        return userAgent;
-    }
 
     public void setUserAgent(String userAgent) {
         if (userAgent.length() >= MAX_USER_AGENT_LEN) {
@@ -91,14 +62,6 @@ public class PersistentToken implements Serializable {
         } else {
             this.userAgent = userAgent;
         }
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
     }
 
     @Override

@@ -2,6 +2,8 @@ package msb.shortcut.master.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -23,6 +25,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "exercise")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter
+@Setter
 public class Exercise implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -57,29 +61,10 @@ public class Exercise implements Serializable {
     private Training training;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLabel() {
-        return label;
-    }
 
     public Exercise label(String label) {
         this.label = label;
         return this;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public Exercise description(String description) {
@@ -87,38 +72,14 @@ public class Exercise implements Serializable {
         return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Integer getOrder() {
-        return order;
-    }
-
     public Exercise order(Integer order) {
         this.order = order;
         return this;
     }
 
-    public void setOrder(Integer order) {
-        this.order = order;
-    }
-
-    public Opponent getOpponent() {
-        return opponent;
-    }
-
     public Exercise opponent(Opponent opponent) {
         this.opponent = opponent;
         return this;
-    }
-
-    public void setOpponent(Opponent opponent) {
-        this.opponent = opponent;
-    }
-
-    public Set<Question> getQuestions() {
-        return questions;
     }
 
     public Exercise questions(Set<Question> questions) {
@@ -138,21 +99,9 @@ public class Exercise implements Serializable {
         return this;
     }
 
-    public void setQuestions(Set<Question> questions) {
-        this.questions = questions;
-    }
-
-    public Training getTraining() {
-        return training;
-    }
-
     public Exercise training(Training training) {
         this.training = training;
         return this;
-    }
-
-    public void setTraining(Training training) {
-        this.training = training;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
