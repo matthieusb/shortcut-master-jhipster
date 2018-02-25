@@ -7,6 +7,7 @@ import msb.shortcut.master.domain.User;
 import msb.shortcut.master.repository.PersistentTokenRepository;
 import msb.shortcut.master.repository.UserRepository;
 import msb.shortcut.master.service.dto.UserDTO;
+import msb.shortcut.master.service.impl.UserServiceImpl;
 import msb.shortcut.master.service.util.RandomUtil;
 
 import org.apache.commons.lang3.RandomStringUtils;
@@ -31,7 +32,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 /**
  * Test class for the UserResource REST controller.
  *
- * @see UserService
+ * @see UserServiceImpl
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ShortcutmasterApp.class)

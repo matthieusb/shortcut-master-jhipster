@@ -5,6 +5,7 @@ import msb.shortcut.master.config.audit.AuditEventConverter;
 import msb.shortcut.master.domain.PersistentAuditEvent;
 import msb.shortcut.master.repository.PersistenceAuditEventRepository;
 import msb.shortcut.master.service.AuditEventService;
+import msb.shortcut.master.service.impl.AuditEventServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,7 +22,6 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
-import java.time.format.DateTimeFormatter;
 
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -65,7 +65,7 @@ public class AuditResourceIntTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         AuditEventService auditEventService =
-            new AuditEventService(auditEventRepository, auditEventConverter);
+            new AuditEventServiceImpl(auditEventRepository, auditEventConverter);
         AuditResource auditResource = new AuditResource(auditEventService);
         this.restAuditMockMvc = MockMvcBuilders.standaloneSetup(auditResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)

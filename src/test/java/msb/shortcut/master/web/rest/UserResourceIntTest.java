@@ -1,7 +1,6 @@
 package msb.shortcut.master.web.rest;
 
 import msb.shortcut.master.ShortcutmasterApp;
-import msb.shortcut.master.config.CacheConfiguration;
 import msb.shortcut.master.domain.Authority;
 import msb.shortcut.master.domain.User;
 import msb.shortcut.master.repository.UserRepository;

@@ -10,11 +10,11 @@ import msb.shortcut.master.repository.PersistentTokenRepository;
 import msb.shortcut.master.repository.UserRepository;
 import msb.shortcut.master.security.AuthoritiesConstants;
 import msb.shortcut.master.service.MailService;
+import msb.shortcut.master.service.UserService;
 import msb.shortcut.master.service.dto.UserDTO;
 import msb.shortcut.master.web.rest.errors.ExceptionTranslator;
 import msb.shortcut.master.web.rest.vm.KeyAndPasswordVM;
 import msb.shortcut.master.web.rest.vm.ManagedUserVM;
-import msb.shortcut.master.service.UserService;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import org.junit.Before;
