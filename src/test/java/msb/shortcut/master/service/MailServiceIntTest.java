@@ -4,6 +4,7 @@ import msb.shortcut.master.config.Constants;
 import msb.shortcut.master.ShortcutmasterApp;
 import msb.shortcut.master.domain.User;
 import io.github.jhipster.config.JHipsterProperties;
+import msb.shortcut.master.service.impl.MailServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,7 +55,7 @@ public class MailServiceIntTest {
     public void setup() {
         MockitoAnnotations.initMocks(this);
         doNothing().when(javaMailSender).send(any(MimeMessage.class));
-        mailService = new MailService(jHipsterProperties, javaMailSender, messageSource, templateEngine);
+        mailService = new MailServiceImpl(jHipsterProperties, javaMailSender, messageSource, templateEngine);
     }
 
     @Test
