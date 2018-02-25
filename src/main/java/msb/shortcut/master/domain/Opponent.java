@@ -1,6 +1,8 @@
 package msb.shortcut.master.domain;
 
 import io.swagger.annotations.ApiModel;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -21,6 +23,8 @@ import msb.shortcut.master.domain.enumeration.OpponentDifficulty;
 @Entity
 @Table(name = "opponent")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter
+@Setter
 public class Opponent implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,29 +44,10 @@ public class Opponent implements Serializable {
     private OpponentDifficulty difficulty;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
 
     public Opponent name(String name) {
         this.name = name;
         return this;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public OpponentDifficulty getDifficulty() {
-        return difficulty;
     }
 
     public Opponent difficulty(OpponentDifficulty difficulty) {
@@ -70,9 +55,6 @@ public class Opponent implements Serializable {
         return this;
     }
 
-    public void setDifficulty(OpponentDifficulty difficulty) {
-        this.difficulty = difficulty;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

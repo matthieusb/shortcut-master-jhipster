@@ -2,6 +2,8 @@ package msb.shortcut.master.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -26,6 +28,8 @@ import msb.shortcut.master.domain.enumeration.OperatingSystem;
 @Entity
 @Table(name = "training")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter
+@Setter
 public class Training implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -59,29 +63,10 @@ public class Training implements Serializable {
     private TrainingType trainingType;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLabel() {
-        return label;
-    }
 
     public Training label(String label) {
         this.label = label;
         return this;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public Training description(String description) {
@@ -89,38 +74,14 @@ public class Training implements Serializable {
         return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public OperatingSystem getOperatingSystem() {
-        return operatingSystem;
-    }
-
     public Training operatingSystem(OperatingSystem operatingSystem) {
         this.operatingSystem = operatingSystem;
         return this;
     }
 
-    public void setOperatingSystem(OperatingSystem operatingSystem) {
-        this.operatingSystem = operatingSystem;
-    }
-
-    public String getImagePath() {
-        return imagePath;
-    }
-
     public Training imagePath(String imagePath) {
         this.imagePath = imagePath;
         return this;
-    }
-
-    public void setImagePath(String imagePath) {
-        this.imagePath = imagePath;
-    }
-
-    public Set<Exercise> getExercises() {
-        return exercises;
     }
 
     public Training exercises(Set<Exercise> exercises) {
@@ -140,22 +101,11 @@ public class Training implements Serializable {
         return this;
     }
 
-    public void setExercises(Set<Exercise> exercises) {
-        this.exercises = exercises;
-    }
-
-    public TrainingType getTrainingType() {
-        return trainingType;
-    }
-
     public Training trainingType(TrainingType trainingType) {
         this.trainingType = trainingType;
         return this;
     }
 
-    public void setTrainingType(TrainingType trainingType) {
-        this.trainingType = trainingType;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

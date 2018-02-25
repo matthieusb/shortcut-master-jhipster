@@ -1,6 +1,8 @@
 package msb.shortcut.master.domain;
 
 import io.swagger.annotations.ApiModel;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -24,6 +26,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "question")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter
+@Setter
 public class Question implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -52,29 +56,10 @@ public class Question implements Serializable {
     private Exercise exercise;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLabel() {
-        return label;
-    }
 
     public Question label(String label) {
         this.label = label;
         return this;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public Question description(String description) {
@@ -82,25 +67,9 @@ public class Question implements Serializable {
         return this;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Command getCommandQuestion() {
-        return commandQuestion;
-    }
-
     public Question commandQuestion(Command command) {
         this.commandQuestion = command;
         return this;
-    }
-
-    public void setCommandQuestion(Command command) {
-        this.commandQuestion = command;
-    }
-
-    public Shortcut getShorcutQuestion() {
-        return shorcutQuestion;
     }
 
     public Question shorcutQuestion(Shortcut shortcut) {
@@ -108,22 +77,11 @@ public class Question implements Serializable {
         return this;
     }
 
-    public void setShorcutQuestion(Shortcut shortcut) {
-        this.shorcutQuestion = shortcut;
-    }
-
-    public Exercise getExercise() {
-        return exercise;
-    }
-
     public Question exercise(Exercise exercise) {
         this.exercise = exercise;
         return this;
     }
 
-    public void setExercise(Exercise exercise) {
-        this.exercise = exercise;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

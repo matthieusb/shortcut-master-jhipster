@@ -1,6 +1,8 @@
 package msb.shortcut.master.domain;
 
 import io.swagger.annotations.ApiModel;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -24,6 +26,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "keystroke")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter
+@Setter
 public class Keystroke implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -45,29 +49,10 @@ public class Keystroke implements Serializable {
     private Shortcut shortcut;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLabel() {
-        return label;
-    }
 
     public Keystroke label(String label) {
         this.label = label;
         return this;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public Integer getJsCode() {
-        return jsCode;
     }
 
     public Keystroke jsCode(Integer jsCode) {
@@ -75,22 +60,11 @@ public class Keystroke implements Serializable {
         return this;
     }
 
-    public void setJsCode(Integer jsCode) {
-        this.jsCode = jsCode;
-    }
-
-    public Shortcut getShortcut() {
-        return shortcut;
-    }
-
     public Keystroke shortcut(Shortcut shortcut) {
         this.shortcut = shortcut;
         return this;
     }
 
-    public void setShortcut(Shortcut shortcut) {
-        this.shortcut = shortcut;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

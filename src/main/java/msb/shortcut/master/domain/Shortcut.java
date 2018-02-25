@@ -2,6 +2,8 @@ package msb.shortcut.master.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -20,6 +22,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "shortcut")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter
+@Setter
 public class Shortcut implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -38,29 +42,10 @@ public class Shortcut implements Serializable {
     private Set<Keystroke> keystrokes = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLabel() {
-        return label;
-    }
 
     public Shortcut label(String label) {
         this.label = label;
         return this;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public Set<Keystroke> getKeystrokes() {
-        return keystrokes;
     }
 
     public Shortcut keystrokes(Set<Keystroke> keystrokes) {
@@ -78,10 +63,6 @@ public class Shortcut implements Serializable {
         this.keystrokes.remove(keystroke);
         keystroke.setShortcut(null);
         return this;
-    }
-
-    public void setKeystrokes(Set<Keystroke> keystrokes) {
-        this.keystrokes = keystrokes;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

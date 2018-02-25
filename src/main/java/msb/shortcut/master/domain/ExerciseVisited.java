@@ -1,6 +1,8 @@
 package msb.shortcut.master.domain;
 
 import io.swagger.annotations.ApiModel;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -20,6 +22,8 @@ import msb.shortcut.master.domain.enumeration.ExercisePhase;
 @Entity
 @Table(name = "exercise_visited")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter
+@Setter
 public class ExerciseVisited implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -40,38 +44,14 @@ public class ExerciseVisited implements Serializable {
     @ManyToOne
     private User user;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public ExercisePhase getLastPhaseFinished() {
-        return lastPhaseFinished;
-    }
-
-    public User getUser() { return user; }
-
     public ExerciseVisited user(User user) {
         this.user = user;
         return this;
     }
 
-    public void setUser(User user) { this.user = user; }
-
     public ExerciseVisited lastPhaseFinished(ExercisePhase lastPhaseFinished) {
         this.lastPhaseFinished = lastPhaseFinished;
         return this;
-    }
-
-    public void setLastPhaseFinished(ExercisePhase lastPhaseFinished) {
-        this.lastPhaseFinished = lastPhaseFinished;
-    }
-
-    public Exercise getExercise() {
-        return exercise;
     }
 
     public ExerciseVisited exercise(Exercise exercise) {
@@ -79,9 +59,6 @@ public class ExerciseVisited implements Serializable {
         return this;
     }
 
-    public void setExercise(Exercise exercise) {
-        this.exercise = exercise;
-    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

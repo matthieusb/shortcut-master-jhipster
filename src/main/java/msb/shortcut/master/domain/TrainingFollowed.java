@@ -1,6 +1,8 @@
 package msb.shortcut.master.domain;
 
 import io.swagger.annotations.ApiModel;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -19,6 +21,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "training_followed")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter
+@Setter
 public class TrainingFollowed implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -39,29 +43,10 @@ public class TrainingFollowed implements Serializable {
     private User user;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public ZonedDateTime getLastVisitDate() {
-        return lastVisitDate;
-    }
 
     public TrainingFollowed lastVisitDate(ZonedDateTime lastVisitDate) {
         this.lastVisitDate = lastVisitDate;
         return this;
-    }
-
-    public void setLastVisitDate(ZonedDateTime lastVisitDate) {
-        this.lastVisitDate = lastVisitDate;
-    }
-
-    public Training getTraining() {
-        return training;
     }
 
     public TrainingFollowed training(Training training) {
@@ -69,18 +54,10 @@ public class TrainingFollowed implements Serializable {
         return this;
     }
 
-    public void setTraining(Training training) {
-        this.training = training;
-    }
-
-    public User getUser() { return user; }
-
     public TrainingFollowed user(User user) {
         this.user = user;
         return this;
     }
-
-    public void setUser(User user) { this.user = user; }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
