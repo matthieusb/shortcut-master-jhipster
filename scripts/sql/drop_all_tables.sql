@@ -1,22 +1,22 @@
 -- Tables
-DROP TABLE training_followed;
-DROP TABLE question;
-DROP TABLE command;
-DROP TABLE exercise_visited;
-DROP TABLE exercise;
-DROP TABLE training;
-DROP TABLE training_type;
-DROP TABLE opponent;
-DROP TABLE keystroke;
-DROP TABLE shortcut;
-DROP TABLE jhi_persistent_audit_evt_data;
-DROP TABLE jhi_persistent_audit_event;
-DROP TABLE jhi_persistent_token;
-DROP TABLE jhi_user_authority;
-DROP TABLE jhi_user;
-DROP TABLE jhi_authority;
-DROP TABLE databasechangelog;
-DROP TABLE databasechangeloglock;
+drop table training_followed;
+drop table question;
+drop table command;
+drop table exercise_visited;
+drop table exercise;
+drop table training;
+drop table training_type;
+drop table opponent;
+drop table keystroke;
+drop table shortcut;
+drop table jhi_persistent_audit_evt_data;
+drop table jhi_persistent_audit_event;
+drop table jhi_persistent_token;
+drop table jhi_user_authority;
+drop table jhi_user;
+drop table jhi_authority;
+drop table databasechangelog;
+drop table databasechangeloglock;
 
 -- Sequences
-DROP SEQUENCE hibernate_sequence;
+drop sequence hibernate_sequence;
