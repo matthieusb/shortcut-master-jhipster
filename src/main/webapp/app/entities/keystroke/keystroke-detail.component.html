@@ -12,12 +12,6 @@
         <dd>
             <span>{{keystroke.jsCode}}</span>
         </dd>
-        <dt><span jhiTranslate="shortcutmasterApp.keystroke.shortcut">Shortcut</span></dt>
-        <dd>
-            <div *ngIf="keystroke.shortcut">
-                <a [routerLink]="['/shortcut', keystroke.shortcut?.id]">{{keystroke.shortcut?.id}}</a>
-            </div>
-        </dd>
     </dl>
 
     <button type="submit"

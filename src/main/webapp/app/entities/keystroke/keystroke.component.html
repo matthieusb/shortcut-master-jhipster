@@ -19,7 +19,6 @@
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="shortcutmasterApp.keystroke.label">Label</span></th>
             <th><span jhiTranslate="shortcutmasterApp.keystroke.jsCode">Js Code</span></th>
-            <th><span jhiTranslate="shortcutmasterApp.keystroke.shortcut">Shortcut</span></th>
             <th></th>
             </tr>
             </thead>
@@ -28,11 +27,6 @@
                 <td><a [routerLink]="['../keystroke', keystroke.id ]">{{keystroke.id}}</a></td>
                 <td>{{keystroke.label}}</td>
                 <td>{{keystroke.jsCode}}</td>
-                <td>
-                    <div *ngIf="keystroke.shortcut">
-                        <a [routerLink]="['../shortcut', keystroke.shortcut?.id ]" >{{keystroke.shortcut?.id}}</a>
-                    </div>
-                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

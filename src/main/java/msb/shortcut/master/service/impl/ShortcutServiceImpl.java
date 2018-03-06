@@ -46,7 +46,7 @@ public class ShortcutServiceImpl implements ShortcutService {
     @Transactional(readOnly = true)
     public List<Shortcut> findAll() {
         log.debug("Request to get all Shortcuts");
-        return shortcutRepository.findAll();
+        return shortcutRepository.findAllWithEagerRelationships();
     }
 
     /**
@@ -59,7 +59,7 @@ public class ShortcutServiceImpl implements ShortcutService {
     @Transactional(readOnly = true)
     public Shortcut findOne(Long id) {
         log.debug("Request to get Shortcut : {}", id);
-        return shortcutRepository.findOne(id);
+        return shortcutRepository.findOneWithEagerRelationships(id);
     }
 
     /**

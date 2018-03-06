@@ -1,9 +1,6 @@
 package msb.shortcut.master.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
-import lombok.Getter;
-import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -22,8 +19,6 @@ import java.util.Objects;
 @Entity
 @Table(name = "shortcut")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-@Getter
-@Setter
 public class Shortcut implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -36,16 +31,37 @@ public class Shortcut implements Serializable {
     @Column(name = "jhi_label")
     private String label;
 
-    @OneToMany(mappedBy = "shortcut")
-    @JsonIgnore
+    @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JoinTable(name = "shortcut_keystrokes",
+               joinColumns = @JoinColumn(name="shortcuts_id", referencedColumnName="id"),
+               inverseJoinColumns = @JoinColumn(name="keystrokes_id", referencedColumnName="id"))
     private Set<Keystroke> keystrokes = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getLabel() {
+        return label;
+    }
 
     public Shortcut label(String label) {
         this.label = label;
         return this;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public Set<Keystroke> getKeystrokes() {
+        return keystrokes;
     }
 
     public Shortcut keystrokes(Set<Keystroke> keystrokes) {
@@ -55,14 +71,18 @@ public class Shortcut implements Serializable {
 
     public Shortcut addKeystrokes(Keystroke keystroke) {
         this.keystrokes.add(keystroke);
-        keystroke.setShortcut(this);
+        keystroke.getShortcuts().add(this);
         return this;
     }
 
     public Shortcut removeKeystrokes(Keystroke keystroke) {
         this.keystrokes.remove(keystroke);
-        keystroke.setShortcut(null);
+        keystroke.getShortcuts().remove(this);
         return this;
+    }
+
+    public void setKeystrokes(Set<Keystroke> keystrokes) {
+        this.keystrokes = keystrokes;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

@@ -16,13 +16,12 @@
     <include file="config/liquibase/changelog/20180222203945_added_entity_TrainingType.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180222203946_added_entity_TrainingFollowed.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
-    <include file="config/liquibase/changelog/20180222203937_added_entity_constraints_Keystroke.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180222203940_added_entity_constraints_Question.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180222203941_added_entity_constraints_Exercise.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180222203942_added_entity_constraints_ExerciseVisited.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180222203944_added_entity_constraints_Training.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180222203946_added_entity_constraints_TrainingFollowed.xml" relativeToChangelogFile="false"/>
-
-    <include file="config/liquibase/changelog/20180222231212_updated_entities_User_TrainingFollowed_ExerciseVisited.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180222203938_added_entity_constraints_Shortcut.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180307202953_changelog.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>
