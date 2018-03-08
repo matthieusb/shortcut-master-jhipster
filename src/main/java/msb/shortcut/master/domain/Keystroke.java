@@ -2,6 +2,8 @@ package msb.shortcut.master.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -17,7 +19,7 @@ import java.util.Objects;
  * Describes a pressed key
  * label: the pressed key label (Ctrl, Alt,a, b, c ...)
  * jsCode: the pressed key javascript code
- * 
+ *
  * About KeyboardEvent.code, see the following link:
  * https:
  * https:
@@ -27,6 +29,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "keystroke")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+@Getter
+@Setter
 public class Keystroke implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,29 +54,10 @@ public class Keystroke implements Serializable {
     private Set<Shortcut> shortcuts = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getLabel() {
-        return label;
-    }
 
     public Keystroke label(String label) {
         this.label = label;
         return this;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public Integer getJsCode() {
-        return jsCode;
     }
 
     public Keystroke jsCode(Integer jsCode) {
@@ -80,13 +65,6 @@ public class Keystroke implements Serializable {
         return this;
     }
 
-    public void setJsCode(Integer jsCode) {
-        this.jsCode = jsCode;
-    }
-
-    public Set<Shortcut> getShortcuts() {
-        return shortcuts;
-    }
 
     public Keystroke shortcuts(Set<Shortcut> shortcuts) {
         this.shortcuts = shortcuts;
@@ -103,10 +81,6 @@ public class Keystroke implements Serializable {
         this.shortcuts.remove(shortcut);
         shortcut.getKeystrokes().remove(this);
         return this;
-    }
-
-    public void setShortcuts(Set<Shortcut> shortcuts) {
-        this.shortcuts = shortcuts;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
