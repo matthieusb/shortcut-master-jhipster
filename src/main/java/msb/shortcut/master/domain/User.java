@@ -112,12 +112,6 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<PersistentToken> persistentTokens = new HashSet<>();
 
-    // Lowercase the login before saving it in database
-    // TODO See if this is actually relevant in the long run
-//    public void setLogin(String login) {
-//        this.login = StringUtils.lowerCase(login, Locale.ENGLISH);
-//    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {

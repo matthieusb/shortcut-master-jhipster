@@ -60,6 +60,7 @@ public class CacheConfiguration {
             cm.createCache(msb.shortcut.master.domain.TrainingType.class.getName(), jcacheConfiguration);
             cm.createCache(msb.shortcut.master.domain.TrainingFollowed.class.getName(), jcacheConfiguration);
 
+            cm.createCache(msb.shortcut.master.domain.Keystroke.class.getName() + ".shortcuts", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

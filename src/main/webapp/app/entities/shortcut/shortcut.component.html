@@ -18,6 +18,7 @@
             <tr>
             <th><span jhiTranslate="global.field.id">ID</span></th>
             <th><span jhiTranslate="shortcutmasterApp.shortcut.label">Label</span></th>
+            <th><span jhiTranslate="shortcutmasterApp.shortcut.keystrokes">Keystrokes</span></th>
             <th></th>
             </tr>
             </thead>
@@ -25,6 +26,11 @@
             <tr *ngFor="let shortcut of shortcuts ;trackBy: trackId">
                 <td><a [routerLink]="['../shortcut', shortcut.id ]">{{shortcut.id}}</a></td>
                 <td>{{shortcut.label}}</td>
+                <td>
+                    <span *ngFor="let keystrokes of shortcut.keystrokes; let last = last">
+                            <a class="form-control-static" [routerLink]="['../keystroke', keystrokes?.id ]">{{keystrokes.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

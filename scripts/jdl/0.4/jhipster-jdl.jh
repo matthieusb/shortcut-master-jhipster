@@ -143,7 +143,6 @@ entity TrainingFollowed {
 // RELATIONSHIPS
 // --------------------------------------------
 relationship OneToMany {
-	Shortcut{keystrokes} to Keystroke
     Exercise{questions} to Question
     Training{exercises} to Exercise
     //User{exercisesVisited} to ExerciseVisited // Does not work, has to be done manually
@@ -160,6 +159,10 @@ relationship ManyToOne {
 	Training{trainingType} to TrainingType
     ExerciseVisited{exercise} to Exercise
     TrainingFollowed{training} to Training
+}
+
+relationship ManyToMany {
+	Shortcut{keystrokes} to Keystroke{shortcuts}
 }
 
 service all with serviceImpl

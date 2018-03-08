@@ -28,6 +28,17 @@
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         
+        <createTable tableName="shortcut_keystrokes">
+            <column name="keystrokes_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="shortcuts_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="shortcuts_id, keystrokes_id" tableName="shortcut_keystrokes"/>
+        
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>

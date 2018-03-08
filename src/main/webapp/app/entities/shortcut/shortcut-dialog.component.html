@@ -18,6 +18,12 @@
                 [(ngModel)]="shortcut.label" />
         </div>
 
+        <div class="form-group">
+            <label jhiTranslate="shortcutmasterApp.shortcut.keystrokes" for="field_keystrokes">Keystrokes</label>
+            <select class="form-control" id="field_keystrokes" multiple name="keystrokes" [(ngModel)]="shortcut.keystrokes">
+                <option [ngValue]="getSelected(shortcut.keystrokes, keystrokeOption)" *ngFor="let keystrokeOption of keystrokes; trackBy: trackKeystrokeById">{{keystrokeOption.id}}</option>
+            </select>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">

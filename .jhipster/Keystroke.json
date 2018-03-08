@@ -2,10 +2,11 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipName": "shortcut",
+            "relationshipType": "many-to-many",
+            "relationshipName": "shortcuts",
             "otherEntityName": "shortcut",
-            "relationshipType": "many-to-one",
-            "otherEntityField": "id"
+            "ownerSide": false,
+            "otherEntityRelationshipName": "keystrokes"
         }
     ],
     "fields": [

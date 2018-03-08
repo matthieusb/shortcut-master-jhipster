@@ -5,7 +5,7 @@ export class Keystroke implements BaseEntity {
         public id?: number,
         public label?: string,
         public jsCode?: number,
-        public shortcut?: BaseEntity,
+        public shortcuts?: BaseEntity[],
     ) {
     }
 }

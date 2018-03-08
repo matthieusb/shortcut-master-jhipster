@@ -9,6 +9,7 @@ import { ShortcutmasterTestModule } from '../../../test.module';
 import { ShortcutDialogComponent } from '../../../../../../main/webapp/app/entities/shortcut/shortcut-dialog.component';
 import { ShortcutService } from '../../../../../../main/webapp/app/entities/shortcut/shortcut.service';
 import { Shortcut } from '../../../../../../main/webapp/app/entities/shortcut/shortcut.model';
+import { KeystrokeService } from '../../../../../../main/webapp/app/entities/keystroke';
 
 describe('Component Tests', () => {
 
@@ -24,6 +25,7 @@ describe('Component Tests', () => {
                 imports: [ShortcutmasterTestModule],
                 declarations: [ShortcutDialogComponent],
                 providers: [
+                    KeystrokeService,
                     ShortcutService
                 ]
             })

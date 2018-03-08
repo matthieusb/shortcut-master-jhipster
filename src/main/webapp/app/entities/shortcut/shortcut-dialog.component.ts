@@ -4,11 +4,12 @@ import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { JhiEventManager } from 'ng-jhipster';
+import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 
 import { Shortcut } from './shortcut.model';
 import { ShortcutPopupService } from './shortcut-popup.service';
 import { ShortcutService } from './shortcut.service';
+import { Keystroke, KeystrokeService } from '../keystroke';
 
 @Component({
     selector: 'jhi-shortcut-dialog',
@@ -19,15 +20,21 @@ export class ShortcutDialogComponent implements OnInit {
     shortcut: Shortcut;
     isSaving: boolean;
 
+    keystrokes: Keystroke[];
+
     constructor(
         public activeModal: NgbActiveModal,
+        private jhiAlertService: JhiAlertService,
         private shortcutService: ShortcutService,
+        private keystrokeService: KeystrokeService,
         private eventManager: JhiEventManager
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.keystrokeService.query()
+            .subscribe((res: HttpResponse<Keystroke[]>) => { this.keystrokes = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }
 
     clear() {
@@ -58,6 +65,25 @@ export class ShortcutDialogComponent implements OnInit {
 
     private onSaveError() {
         this.isSaving = false;
+    }
+
+    private onError(error: any) {
+        this.jhiAlertService.error(error.message, null, null);
+    }
+
+    trackKeystrokeById(index: number, item: Keystroke) {
+        return item.id;
+    }
+
+    getSelected(selectedVals: Array<any>, option: any) {
+        if (selectedVals) {
+            for (let i = 0; i < selectedVals.length; i++) {
+                if (option.id === selectedVals[i].id) {
+                    return selectedVals[i];
+                }
+            }
+        }
+        return option;
     }
 }
 

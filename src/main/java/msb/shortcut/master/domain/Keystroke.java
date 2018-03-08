@@ -1,5 +1,6 @@
 package msb.shortcut.master.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,13 +11,15 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
  * Describes a pressed key
  * label: the pressed key label (Ctrl, Alt,a, b, c ...)
  * jsCode: the pressed key javascript code
- * 
+ *
  * About KeyboardEvent.code, see the following link:
  * https:
  * https:
@@ -45,8 +48,10 @@ public class Keystroke implements Serializable {
     @Column(name = "js_code", nullable = false)
     private Integer jsCode;
 
-    @ManyToOne
-    private Shortcut shortcut;
+    @ManyToMany(mappedBy = "keystrokes")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Shortcut> shortcuts = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
 
@@ -60,11 +65,23 @@ public class Keystroke implements Serializable {
         return this;
     }
 
-    public Keystroke shortcut(Shortcut shortcut) {
-        this.shortcut = shortcut;
+
+    public Keystroke shortcuts(Set<Shortcut> shortcuts) {
+        this.shortcuts = shortcuts;
         return this;
     }
 
+    public Keystroke addShortcuts(Shortcut shortcut) {
+        this.shortcuts.add(shortcut);
+        shortcut.getKeystrokes().add(this);
+        return this;
+    }
+
+    public Keystroke removeShortcuts(Shortcut shortcut) {
+        this.shortcuts.remove(shortcut);
+        shortcut.getKeystrokes().remove(this);
+        return this;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
