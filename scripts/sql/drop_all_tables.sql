@@ -7,6 +7,7 @@ drop table exercise;
 drop table training;
 drop table training_type;
 drop table opponent;
+drop table shortcut_keystrokes;
 drop table keystroke;
 drop table shortcut;
 drop table jhi_persistent_audit_evt_data;
