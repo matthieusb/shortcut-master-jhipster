@@ -10,39 +10,50 @@
             <column name="user_id" type="int8"/>
         </addColumn>
     </changeSet>
+
     <changeSet author="msb (generated)" id="1520450999597-3">
         <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="exercise_visited" constraintName="FK169tw93v580v2imp4354p1b8q" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
     </changeSet>
     <changeSet author="msb (generated)" id="1520450999597-4">
         <addForeignKeyConstraint baseColumnNames="shorcut_question_id" baseTableName="question" constraintName="FK2i9eymq7rk2tfqs180fqe89fl" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="shortcut"/>
     </changeSet>
+
     <changeSet author="msb (generated)" id="1520450999597-5">
         <addForeignKeyConstraint baseColumnNames="keystrokes_id" baseTableName="shortcut_keystrokes" constraintName="FK2ja32fqpfn62wscbj37withpn" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="keystroke"/>
     </changeSet>
+
     <changeSet author="msb (generated)" id="1520450999597-6">
         <addForeignKeyConstraint baseColumnNames="training_id" baseTableName="training_followed" constraintName="FK3ri1p1bhu1130egc6o53dfpvd" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="training"/>
     </changeSet>
+
     <changeSet author="msb (generated)" id="1520450999597-7">
         <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="training_followed" constraintName="FK42ya0vq0ravuvncn2dykt27a8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user"/>
     </changeSet>
+
     <changeSet author="msb (generated)" id="1520450999597-8">
         <addForeignKeyConstraint baseColumnNames="exercise_id" baseTableName="question" constraintName="FKcw89k10abejup8p3hif0kjpw" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="exercise"/>
     </changeSet>
+
     <changeSet author="msb (generated)" id="1520450999597-9">
         <addForeignKeyConstraint baseColumnNames="training_id" baseTableName="exercise" constraintName="FKdgf11138wea34dd612056iuds" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="training"/>
     </changeSet>
+
     <changeSet author="msb (generated)" id="1520450999597-10">
         <addForeignKeyConstraint baseColumnNames="shortcuts_id" baseTableName="shortcut_keystrokes" constraintName="FKihwr771f02myo4l1u74cenrnm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="shortcut"/>
     </changeSet>
+
     <changeSet author="msb (generated)" id="1520450999597-11">
         <addForeignKeyConstraint baseColumnNames="opponent_id" baseTableName="exercise" constraintName="FKlck3vib3vhk0hd0vkuau2paa8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="opponent"/>
     </changeSet>
+
     <changeSet author="msb (generated)" id="1520450999597-12">
         <addForeignKeyConstraint baseColumnNames="training_type_id" baseTableName="training" constraintName="FKosdbocw0x9ygfmna67s7vtewh" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="training_type"/>
     </changeSet>
+
     <changeSet author="msb (generated)" id="1520450999597-13">
         <addForeignKeyConstraint baseColumnNames="exercise_id" baseTableName="exercise_visited" constraintName="FKotlm91wbr08ltgy5ekd4wg1hr" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="exercise"/>
     </changeSet>
+
     <changeSet author="msb (generated)" id="1520450999597-14">
         <addForeignKeyConstraint baseColumnNames="command_question_id" baseTableName="question" constraintName="FKtgsq2lunnaeo8mge75h0l6up8" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="command"/>
     </changeSet>
