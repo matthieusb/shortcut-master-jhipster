@@ -25,6 +25,9 @@ management:
         mail:
             enabled: false # When using the MailService, configure an SMTP server and set this to true
 spring:
+    output:
+      ansi:
+        enabled: always
     application:
         name: shortcutmaster
     profiles:

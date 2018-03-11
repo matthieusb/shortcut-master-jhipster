@@ -7,7 +7,6 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -33,9 +32,8 @@ public class ExerciseVisited implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @NotNull
     @Enumerated(EnumType.STRING)
-    @Column(name = "last_phase_finished", nullable = false)
+    @Column(name = "last_phase_finished")
     private ExercisePhase lastPhaseFinished;
 
     @ManyToOne
@@ -44,10 +42,7 @@ public class ExerciseVisited implements Serializable {
     @ManyToOne
     private User user;
 
-    public ExerciseVisited user(User user) {
-        this.user = user;
-        return this;
-    }
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
 
     public ExerciseVisited lastPhaseFinished(ExercisePhase lastPhaseFinished) {
         this.lastPhaseFinished = lastPhaseFinished;

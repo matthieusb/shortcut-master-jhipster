@@ -56,7 +56,7 @@ entity Question(question) {
 */
 entity Exercise {
 	label String required
-    description String required
+    description String
     order Integer required
 }
 
@@ -75,7 +75,7 @@ enum ExercisePhase {
 * last_phase_finished: to know where the user left off its exercise
 */
 entity ExerciseVisited {
-	lastPhaseFinished ExercisePhase required
+	lastPhaseFinished ExercisePhase
 }
 
 
@@ -126,7 +126,7 @@ entity Training {
 */
 entity TrainingType {
 	label String required
-    description String required
+    description String
 }
 
 /**

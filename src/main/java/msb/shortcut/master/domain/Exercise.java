@@ -40,8 +40,7 @@ public class Exercise implements Serializable {
     @Column(name = "jhi_label", nullable = false)
     private String label;
 
-    @NotNull
-    @Column(name = "description", nullable = false)
+    @Column(name = "description")
     private String description;
 
     @NotNull
@@ -60,7 +59,6 @@ public class Exercise implements Serializable {
     private Training training;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-
     public Exercise label(String label) {
         this.label = label;
         return this;

@@ -11,10 +11,7 @@
         },
         {
             "fieldName": "description",
-            "fieldType": "String",
-            "fieldValidateRules": [
-                "required"
-            ]
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20180222203945",
