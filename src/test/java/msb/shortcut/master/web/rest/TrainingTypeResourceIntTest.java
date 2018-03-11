@@ -154,24 +154,6 @@ public class TrainingTypeResourceIntTest {
 
     @Test
     @Transactional
-    public void checkDescriptionIsRequired() throws Exception {
-        int databaseSizeBeforeTest = trainingTypeRepository.findAll().size();
-        // set the field null
-        trainingType.setDescription(null);
-
-        // Create the TrainingType, which fails.
-
-        restTrainingTypeMockMvc.perform(post("/api/training-types")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(trainingType)))
-            .andExpect(status().isBadRequest());
-
-        List<TrainingType> trainingTypeList = trainingTypeRepository.findAll();
-        assertThat(trainingTypeList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllTrainingTypes() throws Exception {
         // Initialize the database
         trainingTypeRepository.saveAndFlush(trainingType);

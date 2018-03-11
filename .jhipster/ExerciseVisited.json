@@ -12,10 +12,7 @@
         {
             "fieldName": "lastPhaseFinished",
             "fieldType": "ExercisePhase",
-            "fieldValues": "PRACTISE,FIGHT,TEST",
-            "fieldValidateRules": [
-                "required"
-            ]
+            "fieldValues": "PRACTISE,FIGHT,TEST"
         }
     ],
     "changelogDate": "20180222203942",

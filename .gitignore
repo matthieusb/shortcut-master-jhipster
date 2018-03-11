@@ -89,6 +89,12 @@ out/
 *.db
 
 ######################
+# Linux
+# ####################
+# Directory config
+.directory
+
+######################
 # Windows
 ######################
 # Windows image file caches

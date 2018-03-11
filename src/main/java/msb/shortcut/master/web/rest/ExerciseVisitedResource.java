@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -44,7 +43,7 @@ public class ExerciseVisitedResource {
      */
     @PostMapping("/exercise-visiteds")
     @Timed
-    public ResponseEntity<ExerciseVisited> createExerciseVisited(@Valid @RequestBody ExerciseVisited exerciseVisited) throws URISyntaxException {
+    public ResponseEntity<ExerciseVisited> createExerciseVisited(@RequestBody ExerciseVisited exerciseVisited) throws URISyntaxException {
         log.debug("REST request to save ExerciseVisited : {}", exerciseVisited);
         if (exerciseVisited.getId() != null) {
             throw new BadRequestAlertException("A new exerciseVisited cannot already have an ID", ENTITY_NAME, "idexists");
@@ -66,7 +65,7 @@ public class ExerciseVisitedResource {
      */
     @PutMapping("/exercise-visiteds")
     @Timed
-    public ResponseEntity<ExerciseVisited> updateExerciseVisited(@Valid @RequestBody ExerciseVisited exerciseVisited) throws URISyntaxException {
+    public ResponseEntity<ExerciseVisited> updateExerciseVisited(@RequestBody ExerciseVisited exerciseVisited) throws URISyntaxException {
         log.debug("REST request to update ExerciseVisited : {}", exerciseVisited);
         if (exerciseVisited.getId() == null) {
             return createExerciseVisited(exerciseVisited);

@@ -14,17 +14,11 @@
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="shortcutmasterApp.exerciseVisited.lastPhaseFinished" for="field_lastPhaseFinished">Last Phase Finished</label>
-            <select class="form-control" name="lastPhaseFinished" [(ngModel)]="exerciseVisited.lastPhaseFinished" id="field_lastPhaseFinished"  required>
+            <select class="form-control" name="lastPhaseFinished" [(ngModel)]="exerciseVisited.lastPhaseFinished" id="field_lastPhaseFinished" >
                 <option value="PRACTISE">{{'shortcutmasterApp.ExercisePhase.PRACTISE' | translate}}</option>
                 <option value="FIGHT">{{'shortcutmasterApp.ExercisePhase.FIGHT' | translate}}</option>
                 <option value="TEST">{{'shortcutmasterApp.ExercisePhase.TEST' | translate}}</option>
             </select>
-            <div [hidden]="!(editForm.controls.lastPhaseFinished?.dirty && editForm.controls.lastPhaseFinished?.invalid)">
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.lastPhaseFinished?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
-                </small>
-            </div>
         </div>
 
         <div class="form-group">

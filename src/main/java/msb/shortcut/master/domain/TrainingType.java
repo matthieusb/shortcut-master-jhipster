@@ -36,8 +36,7 @@ public class TrainingType implements Serializable {
     @Column(name = "jhi_label", nullable = false)
     private String label;
 
-    @NotNull
-    @Column(name = "description", nullable = false)
+    @Column(name = "description")
     private String description;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

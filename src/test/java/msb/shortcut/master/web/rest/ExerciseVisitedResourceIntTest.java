@@ -132,24 +132,6 @@ public class ExerciseVisitedResourceIntTest {
 
     @Test
     @Transactional
-    public void checkLastPhaseFinishedIsRequired() throws Exception {
-        int databaseSizeBeforeTest = exerciseVisitedRepository.findAll().size();
-        // set the field null
-        exerciseVisited.setLastPhaseFinished(null);
-
-        // Create the ExerciseVisited, which fails.
-
-        restExerciseVisitedMockMvc.perform(post("/api/exercise-visiteds")
-            .contentType(TestUtil.APPLICATION_JSON_UTF8)
-            .content(TestUtil.convertObjectToJsonBytes(exerciseVisited)))
-            .andExpect(status().isBadRequest());
-
-        List<ExerciseVisited> exerciseVisitedList = exerciseVisitedRepository.findAll();
-        assertThat(exerciseVisitedList).hasSize(databaseSizeBeforeTest);
-    }
-
-    @Test
-    @Transactional
     public void getAllExerciseVisiteds() throws Exception {
         // Initialize the database
         exerciseVisitedRepository.saveAndFlush(exerciseVisited);

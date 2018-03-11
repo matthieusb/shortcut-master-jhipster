@@ -40,17 +40,12 @@ public class Exercise implements Serializable {
     @Column(name = "jhi_label", nullable = false)
     private String label;
 
-    @NotNull
-    @Column(name = "description", nullable = false)
+    @Column(name = "description")
     private String description;
 
     @NotNull
     @Column(name = "jhi_order", nullable = false)
     private Integer order;
-
-    @OneToOne
-    @JoinColumn(unique = true)
-    private Opponent opponent;
 
     @OneToMany(mappedBy = "exercise")
     @JsonIgnore
@@ -58,10 +53,12 @@ public class Exercise implements Serializable {
     private Set<Question> questions = new HashSet<>();
 
     @ManyToOne
+    private Opponent opponent;
+
+    @ManyToOne
     private Training training;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
-
     public Exercise label(String label) {
         this.label = label;
         return this;
@@ -74,11 +71,6 @@ public class Exercise implements Serializable {
 
     public Exercise order(Integer order) {
         this.order = order;
-        return this;
-    }
-
-    public Exercise opponent(Opponent opponent) {
-        this.opponent = opponent;
         return this;
     }
 
@@ -99,10 +91,16 @@ public class Exercise implements Serializable {
         return this;
     }
 
+    public Exercise opponent(Opponent opponent) {
+        this.opponent = opponent;
+        return this;
+    }
+
     public Exercise training(Training training) {
         this.training = training;
         return this;
     }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override

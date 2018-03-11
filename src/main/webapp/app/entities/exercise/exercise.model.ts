@@ -6,8 +6,8 @@ export class Exercise implements BaseEntity {
         public label?: string,
         public description?: string,
         public order?: number,
-        public opponent?: BaseEntity,
         public questions?: BaseEntity[],
+        public opponent?: BaseEntity,
         public training?: BaseEntity,
     ) {
     }

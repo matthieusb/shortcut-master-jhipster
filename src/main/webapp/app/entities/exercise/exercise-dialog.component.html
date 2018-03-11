@@ -26,13 +26,7 @@
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="shortcutmasterApp.exercise.description" for="field_description">Description</label>
             <input type="text" class="form-control" name="description" id="field_description"
-                [(ngModel)]="exercise.description" required/>
-            <div [hidden]="!(editForm.controls.description?.dirty && editForm.controls.description?.invalid)">
-                <small class="form-text text-danger"
-                   [hidden]="!editForm.controls.description?.errors?.required" jhiTranslate="entity.validation.required">
-                   This field is required.
-                </small>
-            </div>
+                [(ngModel)]="exercise.description" />
         </div>
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="shortcutmasterApp.exercise.order" for="field_order">Order</label>
@@ -52,7 +46,7 @@
 
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="shortcutmasterApp.exercise.opponent" for="field_opponent">Opponent</label>
-            <select class="form-control" id="field_opponent" name="opponent" [(ngModel)]="exercise.opponent">
+            <select class="form-control" id="field_opponent" name="opponent" [(ngModel)]="exercise.opponent" >
                 <option [ngValue]="null"></option>
                 <option [ngValue]="opponentOption.id === exercise.opponent?.id ? exercise.opponent : opponentOption" *ngFor="let opponentOption of opponents; trackBy: trackOpponentById">{{opponentOption.id}}</option>
             </select>
