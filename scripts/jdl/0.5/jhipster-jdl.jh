@@ -1,0 +1,168 @@
+// --------------------------------------------
+// ENTITIES
+// --------------------------------------------
+
+/**
+* Describes a pressed key
+* label: the pressed key label (Ctrl, Alt,a, b, c ...)
+* jsCode: the pressed key javascript code
+*
+* About KeyboardEvent.code, see the following link:
+* https://developer.mozilla.org/fr/docs/Web/API/KeyboardEvent/code 
+* https://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
+* http://keycode.info/
+*/
+entity Keystroke(keystroke) {
+	label String required
+    jsCode Integer required
+}
+
+/**
+* Succession of keystrokes to enter to answer a shortcut question.
+* label: short explanation of what the shorcut should do
+*/
+entity Shortcut(shortcut) {
+	label String
+}
+
+/**
+* Describes a command to be reproduced by the user
+* command: the command he has to type as an answer, Ex: pwd
+*/
+entity Command(command) {
+    command String required
+}
+
+/**
+* Decribes a succession of pressed keys to constitute a shortcut.
+* IMPORTANT : For now, a question should either a command or a shorcut.
+* It should not have both
+*
+* label: the shortcut label, Ex: Rename current variable
+* description: a brief description of the action, Ex: Renames all variables occurences on the file
+* 
+* OneToMany relationship towards Keystroke
+*/
+entity Question(question) {
+	label String required
+    description String
+}
+
+/**
+* Describes a list of shortcuts or commands to exercise on. 
+* Each exercise has three phases handled by the front-end: PRACTISE, FIGHT, TEST
+* label: the label
+* description: the description
+*/
+entity Exercise {
+	label String required
+    description String required
+    order Integer required
+}
+
+/*
+* An exercise phase.
+* PRACTISE: phase of training, where you answer questions with help.
+* FIGHT: Fight against an opponent
+* TEST: Answer questions without any help
+*/
+enum ExercisePhase {
+	PRACTISE, FIGHT, TEST
+}
+
+/*
+* Describes the exercise pursued by an app user.
+* last_phase_finished: to know where the user left off its exercise
+*/
+entity ExerciseVisited {
+	lastPhaseFinished ExercisePhase required
+}
+
+
+/**
+* The way an opponent answers to questions.
+* Wil be handled by Front-End
+*/
+enum OpponentDifficulty {
+	CHILDISH, EASY, NORMAL, HARD, NIGHTMARE
+}
+
+/**
+* Opponent used to battle against a user.
+* name: the opponent name, Ex: Glados, Wheatley
+* difficulty: the difficulty the user has to face
+*/
+entity Opponent {
+	name String required
+    difficulty OpponentDifficulty required
+}
+
+/**
+* The operating system of the exercise.
+* Used to handle MacOS specific keys
+*/
+enum OperatingSystem {
+	MACOS, WINLINUX
+}
+
+/**
+* Training to be chosen by a user. Has a type and consists of several exercises.
+* label: training label, Ex: Eclipse shortcuts
+* description: more detailed explanation, Ex: Train on eclipse shorcuts
+* operatingSystem: the OS this training will work on (mainly for shortcuts)
+* imagePath; the path of the image to characterize the training
+*/
+entity Training {
+	label String required
+    description String
+    operatingSystem OperatingSystem required
+    imagePath String
+}
+
+/**
+* Type of training, like Programming languages, Editor shortcuts, Terminal Commands ...
+* label: label of the type
+* description: description of the type
+*/
+entity TrainingType {
+	label String required
+    description String required
+}
+
+/**
+* Describes the trainings followed by a user (Which he has stored)
+* last_visit_date: the last time the user visited and did actions on a training.
+*/
+entity TrainingFollowed {
+	lastVisitDate ZonedDateTime required
+}
+
+
+
+// --------------------------------------------
+// RELATIONSHIPS
+// --------------------------------------------
+relationship OneToMany {
+    Exercise{questions} to Question
+    Training{exercises} to Exercise
+    //User{exercisesVisited} to ExerciseVisited // Does not work, has to be done manually
+    //User{trainingFollowed} to TrainingFollowed // Same than before here
+}
+
+relationship OneToOne {
+	Question{commandQuestion} to Command
+    Question{shorcutQuestion} to Shortcut
+}
+
+relationship ManyToOne {
+	Training{trainingType} to TrainingType
+    Exercise{opponent} to Opponent
+    ExerciseVisited{exercise} to Exercise
+    TrainingFollowed{training} to Training
+}
+
+relationship ManyToMany {
+	Shortcut{keystrokes} to Keystroke{shortcuts}
+}
+
+service all with serviceImpl
