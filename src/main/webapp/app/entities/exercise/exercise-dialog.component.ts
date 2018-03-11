@@ -37,19 +37,8 @@ export class ExerciseDialogComponent implements OnInit {
 
     ngOnInit() {
         this.isSaving = false;
-        this.opponentService
-            .query({filter: 'exercise-is-null'})
-            .subscribe((res: HttpResponse<Opponent[]>) => {
-                if (!this.exercise.opponent || !this.exercise.opponent.id) {
-                    this.opponents = res.body;
-                } else {
-                    this.opponentService
-                        .find(this.exercise.opponent.id)
-                        .subscribe((subRes: HttpResponse<Opponent>) => {
-                            this.opponents = [subRes.body].concat(res.body);
-                        }, (subRes: HttpErrorResponse) => this.onError(subRes.message));
-                }
-            }, (res: HttpErrorResponse) => this.onError(res.message));
+        this.opponentService.query()
+            .subscribe((res: HttpResponse<Opponent[]>) => { this.opponents = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
         this.trainingService.query()
             .subscribe((res: HttpResponse<Training[]>) => { this.trainings = res.body; }, (res: HttpErrorResponse) => this.onError(res.message));
     }

@@ -19,8 +19,8 @@
             "label": "Label",
             "description": "Description",
             "order": "Order",
-            "opponent": "Opponent",
             "questions": "Questions",
+            "opponent": "Opponent",
             "training": "Training"
         }
     }

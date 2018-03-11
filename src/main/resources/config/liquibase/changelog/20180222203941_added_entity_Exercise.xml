@@ -32,9 +32,11 @@
             <column name="jhi_order" type="integer">
                 <constraints nullable="false" />
             </column>
+
             <column name="opponent_id" type="bigint">
-                <constraints unique="true" nullable="true" />
+                <constraints nullable="true" />
             </column>
+
             <column name="training_id" type="bigint">
                 <constraints nullable="true" />
             </column>

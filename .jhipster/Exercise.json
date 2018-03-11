@@ -2,18 +2,16 @@
     "fluentMethods": true,
     "relationships": [
         {
-            "relationshipType": "one-to-one",
-            "relationshipName": "opponent",
-            "otherEntityName": "opponent",
-            "otherEntityField": "id",
-            "ownerSide": true,
-            "otherEntityRelationshipName": "exercise"
-        },
-        {
             "relationshipType": "one-to-many",
             "relationshipName": "questions",
             "otherEntityName": "question",
             "otherEntityRelationshipName": "exercise"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "opponent",
+            "otherEntityName": "opponent",
+            "otherEntityField": "id"
         },
         {
             "relationshipName": "training",
