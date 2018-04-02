@@ -18,80 +18,90 @@
                     </span>
                 </a>
             </li>
+            <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link" routerLink="trainings" (click)="collapseNavbar()">
+                    <span>
+                        <i class="fa fa-book" aria-hidden="true"></i>
+                        <span jhiTranslate="global.menu.training.center">Training-Center</span>
+                    </span>
+                </a>
+            </li>
             <!-- jhipster-needle-add-element-to-menu - JHipster will add new menu items here -->
-            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
+            <ng-container *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                    <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
                     <span>
                         <i class="fa fa-th-list" aria-hidden="true"></i>
                         <span jhiTranslate="global.menu.entities.main">
                             Entities
                         </span>
                     </span>
-                </a>
-                <ul class="dropdown-menu" ngbDropdownMenu>
-                    <li>
-                        <a class="dropdown-item" routerLink="keystroke" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.keystroke">Keystroke</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="shortcut" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.shortcut">Shortcut</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="command" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.command">Command</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="question" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.question">Question</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="exercise" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.exercise">Exercise</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="exercise-visited" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.exerciseVisited">Exercise Visited</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="opponent" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.opponent">Opponent</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="training" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.training">Training</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="training-type" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.trainingType">Training Type</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" routerLink="training-followed" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                            <span jhiTranslate="global.menu.entities.trainingFollowed">Training Followed</span>
-                        </a>
-                    </li>
-                    <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
-                </ul>
-            </li>
+                    </a>
+                    <ul class="dropdown-menu" ngbDropdownMenu>
+                        <li>
+                            <a class="dropdown-item" routerLink="keystroke" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.keystroke">Keystroke</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="shortcut" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.shortcut">Shortcut</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="command" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.command">Command</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="question" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.question">Question</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="exercise" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.exercise">Exercise</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="exercise-visited" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.exerciseVisited">Exercise Visited</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="opponent" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.opponent">Opponent</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="training" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.training">Training</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="training-type" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.trainingType">Training Type</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" routerLink="training-followed" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                                <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                                <span jhiTranslate="global.menu.entities.trainingFollowed">Training Followed</span>
+                            </a>
+                        </li>
+                        <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                    </ul>
+                </li>
+            </ng-container>
             <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">
                     <span>
@@ -172,7 +182,7 @@
                       Account
                     </span>
                   </span>
-                  <span *ngIf="getImageUrl()">
+                    <span *ngIf="getImageUrl()">
                       <img [src]="getImageUrl()" class="profile-image img-circle" alt="Avatar">
                   </span>
                 </a>

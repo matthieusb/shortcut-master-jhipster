@@ -5,6 +5,9 @@
         "menu": {
             "home": "Home",
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+            "training": {
+                "center": "Training Center"
+            },
             "entities": {
                 "main": "Entities",
                 "keystroke": "Keystroke",

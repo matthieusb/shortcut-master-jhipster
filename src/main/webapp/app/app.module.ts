@@ -28,6 +28,8 @@ import {
     ErrorComponent
 } from './layouts';
 
+import { TrainingCenterModule } from './training-center/training-center.module';
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -38,6 +40,7 @@ import {
         ShortcutmasterAdminModule,
         ShortcutmasterAccountModule,
         ShortcutmasterEntityModule,
+        TrainingCenterModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
     ],
     declarations: [
