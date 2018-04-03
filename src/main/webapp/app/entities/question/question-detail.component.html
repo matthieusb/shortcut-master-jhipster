@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="question">
+            <h2><span jhiTranslate="shortcutmasterApp.question.detail.title">Question</span> {{question.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="shortcutmasterApp.question.label">Label</span></dt>
+                <dd>
+                    <span>{{question.label}}</span>
+                </dd>
+                <dt><span jhiTranslate="shortcutmasterApp.question.description">Description</span></dt>
+                <dd>
+                    <span>{{question.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="shortcutmasterApp.question.commandQuestion">Command Question</span></dt>
+                <dd>
+                    <div *ngIf="question.commandQuestion">
+                        <a [routerLink]="['/command', question.commandQuestion?.id, 'view']">{{question.commandQuestion?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="shortcutmasterApp.question.shorcutQuestion">Shorcut Question</span></dt>
+                <dd>
+                    <div *ngIf="question.shorcutQuestion">
+                        <a [routerLink]="['/shortcut', question.shorcutQuestion?.id, 'view']">{{question.shorcutQuestion?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="shortcutmasterApp.question.exercise">Exercise</span></dt>
+                <dd>
+                    <div *ngIf="question.exercise">
+                        <a [routerLink]="['/exercise', question.exercise?.id, 'view']">{{question.exercise?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/question', question.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

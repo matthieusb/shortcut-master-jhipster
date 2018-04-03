@@ -1,0 +1,49 @@
+{
+    "fields": [
+        {
+            "fieldName": "label",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "commandQuestion",
+            "otherEntityName": "command",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "question"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "shorcutQuestion",
+            "otherEntityName": "shortcut",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "question"
+        },
+        {
+            "relationshipName": "exercise",
+            "otherEntityName": "exercise",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180403183457",
+    "javadoc": "Decribes a succession of pressed keys to constitute a shortcut.\nIMPORTANT : For now, a question should either a command or a shorcut.\nIt should not have both\n\nlabel: the shortcut label, Ex: Rename current variable\ndescription: a brief description of the action, Ex: Renames all variables occurences on the file\n\nOneToMany relationship towards Keystroke",
+    "entityTableName": "question",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,45 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="training">
+            <h2><span jhiTranslate="shortcutmasterApp.training.detail.title">Training</span> {{training.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="shortcutmasterApp.training.label">Label</span></dt>
+                <dd>
+                    <span>{{training.label}}</span>
+                </dd>
+                <dt><span jhiTranslate="shortcutmasterApp.training.description">Description</span></dt>
+                <dd>
+                    <span>{{training.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="shortcutmasterApp.training.operatingSystem">Operating System</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'shortcutmasterApp.OperatingSystem.' + training.operatingSystem}}">{{training.operatingSystem}}</span>
+                </dd>
+                <dt><span jhiTranslate="shortcutmasterApp.training.imagePath">Image Path</span></dt>
+                <dd>
+                    <span>{{training.imagePath}}</span>
+                </dd>
+                <dt><span jhiTranslate="shortcutmasterApp.training.trainingType">Training Type</span></dt>
+                <dd>
+                    <div *ngIf="training.trainingType">
+                        <a [routerLink]="['/training-type', training.trainingType?.id, 'view']">{{training.trainingType?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/training', training.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

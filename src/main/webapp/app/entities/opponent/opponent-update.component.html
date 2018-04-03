@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-opponent-heading" jhiTranslate="shortcutmasterApp.opponent.home.createOrEditLabel">Create or edit a Opponent</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!opponent.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="opponent.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="shortcutmasterApp.opponent.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="opponent.name" required/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="shortcutmasterApp.opponent.difficulty" for="field_difficulty">Difficulty</label>
+                    <select class="form-control" name="difficulty" [(ngModel)]="opponent.difficulty" id="field_difficulty"  required>
+                        <option value="CHILDISH">{{'shortcutmasterApp.OpponentDifficulty.CHILDISH' | translate}}</option>
+                        <option value="EASY">{{'shortcutmasterApp.OpponentDifficulty.EASY' | translate}}</option>
+                        <option value="NORMAL">{{'shortcutmasterApp.OpponentDifficulty.NORMAL' | translate}}</option>
+                        <option value="HARD">{{'shortcutmasterApp.OpponentDifficulty.HARD' | translate}}</option>
+                        <option value="NIGHTMARE">{{'shortcutmasterApp.OpponentDifficulty.NIGHTMARE' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.difficulty?.dirty && editForm.controls.difficulty?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.difficulty?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

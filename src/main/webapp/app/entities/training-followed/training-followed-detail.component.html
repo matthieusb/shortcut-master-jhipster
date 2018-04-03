@@ -1,0 +1,33 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="trainingFollowed">
+            <h2><span jhiTranslate="shortcutmasterApp.trainingFollowed.detail.title">Training Followed</span> {{trainingFollowed.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="shortcutmasterApp.trainingFollowed.lastVisitDate">Last Visit Date</span></dt>
+                <dd>
+                    <span>{{trainingFollowed.lastVisitDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="shortcutmasterApp.trainingFollowed.training">Training</span></dt>
+                <dd>
+                    <div *ngIf="trainingFollowed.training">
+                        <a [routerLink]="['/training', trainingFollowed.training?.id, 'view']">{{trainingFollowed.training?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/training-followed', trainingFollowed.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

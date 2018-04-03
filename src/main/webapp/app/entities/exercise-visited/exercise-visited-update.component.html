@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-exercise-visited-heading" jhiTranslate="shortcutmasterApp.exerciseVisited.home.createOrEditLabel">Create or edit a Exercise Visited</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!exerciseVisited.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="exerciseVisited.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="shortcutmasterApp.exerciseVisited.lastPhaseFinished" for="field_lastPhaseFinished">Last Phase Finished</label>
+                    <select class="form-control" name="lastPhaseFinished" [(ngModel)]="exerciseVisited.lastPhaseFinished" id="field_lastPhaseFinished" >
+                        <option value="PRACTISE">{{'shortcutmasterApp.ExercisePhase.PRACTISE' | translate}}</option>
+                        <option value="FIGHT">{{'shortcutmasterApp.ExercisePhase.FIGHT' | translate}}</option>
+                        <option value="TEST">{{'shortcutmasterApp.ExercisePhase.TEST' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="shortcutmasterApp.exerciseVisited.exercise" for="field_exercise">Exercise</label>
+                    <select class="form-control" id="field_exercise" name="exercise" [(ngModel)]="exerciseVisited.exercise" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="exerciseOption.id === exerciseVisited.exercise?.id ? exerciseVisited.exercise : exerciseOption" *ngFor="let exerciseOption of exercises; trackBy: trackExerciseById">{{exerciseOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

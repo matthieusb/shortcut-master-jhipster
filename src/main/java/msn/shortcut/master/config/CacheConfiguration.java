@@ -43,6 +43,20 @@ public class CacheConfiguration {
             cm.createCache(msn.shortcut.master.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(msn.shortcut.master.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(msn.shortcut.master.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(msn.shortcut.master.domain.Keystroke.class.getName(), jcacheConfiguration);
+            cm.createCache(msn.shortcut.master.domain.Keystroke.class.getName() + ".shortcuts", jcacheConfiguration);
+            cm.createCache(msn.shortcut.master.domain.Shortcut.class.getName(), jcacheConfiguration);
+            cm.createCache(msn.shortcut.master.domain.Shortcut.class.getName() + ".keystrokes", jcacheConfiguration);
+            cm.createCache(msn.shortcut.master.domain.Command.class.getName(), jcacheConfiguration);
+            cm.createCache(msn.shortcut.master.domain.Question.class.getName(), jcacheConfiguration);
+            cm.createCache(msn.shortcut.master.domain.Exercise.class.getName(), jcacheConfiguration);
+            cm.createCache(msn.shortcut.master.domain.Exercise.class.getName() + ".questions", jcacheConfiguration);
+            cm.createCache(msn.shortcut.master.domain.ExerciseVisited.class.getName(), jcacheConfiguration);
+            cm.createCache(msn.shortcut.master.domain.Opponent.class.getName(), jcacheConfiguration);
+            cm.createCache(msn.shortcut.master.domain.Training.class.getName(), jcacheConfiguration);
+            cm.createCache(msn.shortcut.master.domain.Training.class.getName() + ".exercises", jcacheConfiguration);
+            cm.createCache(msn.shortcut.master.domain.TrainingType.class.getName(), jcacheConfiguration);
+            cm.createCache(msn.shortcut.master.domain.TrainingFollowed.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

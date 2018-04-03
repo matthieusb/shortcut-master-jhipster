@@ -1,0 +1,23 @@
+
+{
+    "shortcutmasterApp": {
+        "trainingFollowed" : {
+            "home": {
+                "title": "Training Followeds",
+                "createLabel": "Create a new Training Followed",
+                "createOrEditLabel": "Create or edit a Training Followed"
+            },
+            "created": "A new Training Followed is created with identifier {{ param }}",
+            "updated": "A Training Followed is updated with identifier {{ param }}",
+            "deleted": "A Training Followed is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Training Followed {{ id }}?"
+            },
+            "detail": {
+                "title": "Training Followed"
+            },
+            "lastVisitDate": "Last Visit Date",
+            "training": "Training"
+        }
+    }
+}

@@ -1,0 +1,51 @@
+{
+    "fields": [
+        {
+            "fieldName": "label",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "operatingSystem",
+            "fieldType": "OperatingSystem",
+            "fieldValues": "MACOS,WINLINUX",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "imagePath",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "exercises",
+            "otherEntityName": "exercise",
+            "otherEntityRelationshipName": "training"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "trainingType",
+            "otherEntityName": "trainingType",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180403183501",
+    "javadoc": "Training to be chosen by a user. Has a type and consists of several exercises.\nlabel: training label, Ex: Eclipse shortcuts\ndescription: more detailed explanation, Ex: Train on eclipse shorcuts\noperatingSystem: the OS this training will work on (mainly for shortcuts)\nimagePath; the path of the image to characterize the training",
+    "entityTableName": "training",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

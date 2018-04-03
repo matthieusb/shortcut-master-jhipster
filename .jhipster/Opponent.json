@@ -1,0 +1,30 @@
+{
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "difficulty",
+            "fieldType": "OpponentDifficulty",
+            "fieldValues": "CHILDISH,EASY,NORMAL,HARD,NIGHTMARE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180403183500",
+    "javadoc": "Opponent used to battle against a user.\nname: the opponent name, Ex: Glados, Wheatley\ndifficulty: the difficulty the user has to face",
+    "entityTableName": "opponent",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

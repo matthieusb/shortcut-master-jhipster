@@ -7,6 +7,16 @@
             "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
             "entities": {
                 "main": "Entités",
+                "keystroke": "Keystroke",
+                "shortcut": "Shortcut",
+                "command": "Command",
+                "question": "Question",
+                "exercise": "Exercise",
+                "exerciseVisited": "Exercise Visited",
+                "opponent": "Opponent",
+                "training": "Training",
+                "trainingType": "Training Type",
+                "trainingFollowed": "Training Followed",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="opponent">
+            <h2><span jhiTranslate="shortcutmasterApp.opponent.detail.title">Opponent</span> {{opponent.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="shortcutmasterApp.opponent.name">Name</span></dt>
+                <dd>
+                    <span>{{opponent.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="shortcutmasterApp.opponent.difficulty">Difficulty</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'shortcutmasterApp.OpponentDifficulty.' + opponent.difficulty}}">{{opponent.difficulty}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/opponent', opponent.id, 'edit']"
+                    class="btn btn-primary">
+                <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

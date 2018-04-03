@@ -1,0 +1,52 @@
+{
+    "fields": [
+        {
+            "fieldName": "label",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "order",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "questions",
+            "otherEntityName": "question",
+            "otherEntityRelationshipName": "exercise"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "opponent",
+            "otherEntityName": "opponent",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "training",
+            "otherEntityName": "training",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180403183458",
+    "javadoc": "Describes a list of shortcuts or commands to exercise on.\nEach exercise has three phases handled by the front-end: PRACTISE, FIGHT, TEST\nlabel: the label\ndescription: the description",
+    "entityTableName": "exercise",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

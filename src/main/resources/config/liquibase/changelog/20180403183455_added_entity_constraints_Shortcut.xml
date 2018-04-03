@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Shortcut.
+    -->
+    <changeSet id="20180403183455-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="shortcuts_id"
+                                 baseTableName="shortcut_keystrokes"
+                                 constraintName="fk_shortcut_keystrokes_shortcuts_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="shortcut"/>
+        <addForeignKeyConstraint baseColumnNames="keystrokes_id"
+                                 baseTableName="shortcut_keystrokes"
+                                 constraintName="fk_shortcut_keystrokes_keystrokes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="keystroke"/>
+        
+    </changeSet>
+</databaseChangeLog>

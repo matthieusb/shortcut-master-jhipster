@@ -1,0 +1,28 @@
+{
+    "fields": [
+        {
+            "fieldName": "label",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "shortcuts",
+            "relationshipName": "keystrokes",
+            "otherEntityName": "keystroke",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20180403183455",
+    "javadoc": "Succession of keystrokes to enter to answer a shortcut question.\nlabel: short explanation of what the shorcut should do",
+    "entityTableName": "shortcut",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

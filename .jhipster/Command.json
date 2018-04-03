@@ -1,0 +1,22 @@
+{
+    "fields": [
+        {
+            "fieldName": "command",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180403183456",
+    "javadoc": "Describes a command to be reproduced by the user\ncommand: the command he has to type as an answer, Ex: pwd",
+    "entityTableName": "command",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

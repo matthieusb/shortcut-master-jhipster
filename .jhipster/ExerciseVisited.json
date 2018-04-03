@@ -1,0 +1,27 @@
+{
+    "fields": [
+        {
+            "fieldName": "lastPhaseFinished",
+            "fieldType": "ExercisePhase",
+            "fieldValues": "PRACTISE,FIGHT,TEST"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "exercise",
+            "otherEntityName": "exercise",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180403183459",
+    "javadoc": "Describes the exercise pursued by an app user.\nlast_phase_finished: to know where the user left off its exercise",
+    "entityTableName": "exercise_visited",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
