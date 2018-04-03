@@ -1,9 +1,0 @@
-{
-    "shortcutmasterApp": {
-        "OperatingSystem" : {
-            "null": "",
-            "MACOS": "MACOS",
-            "WINLINUX": "WINLINUX"
-        }
-    }
-}
