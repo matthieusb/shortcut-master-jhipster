@@ -1,0 +1,60 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "msn.shortcut.master",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "5.0.0-beta.0",
+    "baseName": "shortcutmaster",
+    "reactive": true,
+    "packageName": "msn.shortcut.master",
+    "packageFolder": "msn/shortcut/master",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "0d98d8472d73dcac693967f71e10ab3e526ddf8d",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "yarn",
+    "applicationType": "monolith",
+    "testFrameworks": [
+      "gatling",
+      "cucumber"
+    ],
+    "jhiPrefix": "jhi",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-docker",
+        "version": "2.4.0"
+      },
+      {
+        "name": "generator-jhipster-ci",
+        "version": "1.0.0"
+      },
+      {
+        "name": "generator-jhipster-swagger2markup",
+        "version": "1.2.0"
+      },
+      {
+        "name": "generator-jhipster-entity-audit",
+        "version": "3.1.0"
+      }
+    ],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": [
+      "en",
+      "fr"
+    ]
+  }
+}
